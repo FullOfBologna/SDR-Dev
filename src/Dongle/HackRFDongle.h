@@ -9,7 +9,6 @@ extern "C" {
 	#include <libhackrf/hackrf.h>
 }
 
-typedef uint8_t bitDepth8_t;
 
 struct devInfo
 {
@@ -34,8 +33,7 @@ uint32_t mLNAGain;
 
 static const char* mSerialNumber;
 
-static std::array<bitDepth8_t,MAXIMUM_BUF_LENGTH> mSampBuffer;
-
+static std::array<uint8_t,MAXIMUM_BUF_LENGTH> mSampBuffer;
 
 int dongleInit();
 void devInfoSet(std::unique_ptr<devInfo> &devInfo);
@@ -59,5 +57,4 @@ int DemodTargetSet(std::unique_ptr<Demod>&demodTarget);
 
 void StartRx();
 void StopRx();
-
 };

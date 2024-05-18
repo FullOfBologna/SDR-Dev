@@ -7,11 +7,11 @@
 class Dongle
 {
 protected:
-    uint32_t m_frequency;
-    uint32_t m_sampleRate;
-    uint32_t m_bufLen;
+    uint32_t mFrequency;
+    uint32_t mSampleRate;
+    uint32_t mBufLen;
 
-    int m_ppmError;
+    int mPpmError;
 
 public: 
     Dongle(){};
