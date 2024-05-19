@@ -1,13 +1,16 @@
 # Scratchpad Task Tracking
 
-### TODO: 05-18-2024
+### TODO: 
 
 Current goals: Configure HackRF to a given frequency, samplerate, and gain, and output the buffer to a .wav file. 
 No demod will be performed. Demod will be a bentpipe only to get data to the output file. 
 
 - [ ] Hack RF Demod Target accepts child intance of Demod Abstract Class
-    - [x] Implment DemodTargetSet method
+    - [x] Implment DemodTargetSet method - 05/18/2024
     - [ ] Implement Read/Write Lock Safety
+        - [ ] Explore Coroutines for usage. Potential value for a scanner, that triggers, based on a 
+    - [ ] Implement Ready signal for demod to start processing. Reference rtl_fm for design, and the documentation flow diagram ![Image](./FlowDragram.png)
+
 - [ ] Demod Target has route to Output Abstract class target
 - [ ] Instantiate C++ threads
     - [ ] Output Object thread
@@ -22,6 +25,16 @@ No demod will be performed. Demod will be a bentpipe only to get data to the out
     
     - [ ] Refactor CMake with new directory structure and added files/classes
     - [ ] Refactor CMake for reading cmake files in individual sections of code. 
+
+
+## Notes/Thoughts
+
+- What should locked? Thinking, for the Demod, primarily just lock the transfer buffer and the receiving buffer. Then once the transfer has happened, and the buffer is stored by the demod, 
+
+
+
+
+# Appendix
 
 ### ChatGPT Suggestion for CMake
 
