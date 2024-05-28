@@ -37,8 +37,12 @@ static std::array<uint8_t,MAXIMUM_BUF_LENGTH> mSampBuffer;
 
 int dongleInit();
 void devInfoSet(std::unique_ptr<devInfo> &devInfo);
+/*
+ Explicit Calls to lock demod target are now irrelevant with the Implementation of a Channel object to
+ act as a traffic officer. 
 int demodTargetLock();
 int demodTargetFree();
+*/
 int bufferTransferToDemodTarget();
 int sdrCallback(hackrf_transfer* transfer);
 

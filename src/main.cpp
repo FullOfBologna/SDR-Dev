@@ -1,6 +1,8 @@
 #include "Devices/Devices.hpp"
 #include "Dongle/HackRFDongle.h"
 #include <signal>
+#include <thread>
+
 
 void sigint_callback_handler(int signum)
 {
@@ -49,7 +51,11 @@ FoundDevices.resultCheck(result);
 	HackRFDongle HackRF(devToOpen);
 	//Initialize Demod Object
     //
+    const std::string OUTPUT_DIR = "/home/fullofbologna/dev_env/CppDev/HackRF_Dev";
+
     Demod BentPipeDemod();
+    WavOutput WavFileOutput(OUTPUT_FILE);
+
 	HackRFDongle.DemodTargetSet(BentPipeDemod);
 
 	uint32_t tuneFrequencyHz = 2100 * MHZ_TO_HZ;
@@ -72,6 +78,33 @@ FoundDevices.resultCheck(result);
 	signal(SIGSEGV, &sigint_callback_handler);
     signal(SIGTERM, &sigint_callback_handler);
 	signal(SIGABRT, &sigint_callback_handler);
+
+
+    /*
+     * Initialize Threads for Rx Receiving. 
+     *  - HackRF Will run on it's own thread, listening for a callback from the Rx Device
+     *  - Demod instance will wait for signal from Rx Receive that it is ready to pass in data. 
+     *  - Output instane will wait for signal from Demod that it is ready to receive data to write\
+     *      to file, or output via audio. 
+     */
+
+    bool outputReady(false);
+    bool demodReady(false);
+    std::mutex outputMutex;
+    std::mutex demodMutex;
+
+    std::condition_variable outputConditionVar;
+    std::condition_variable demodConditionVar;
+    std::condition_variable hackrfConditionVar;
+
+    std::thread outputThread(WaveFileOutput);
+    std::thread demodThread(BentPipeDemod);
+    std::thread hackRfThread(HackRF);
+
+    WavFileOutput.ConditionVariableSet(outputConditionVar);
+    BentPipeDemod.ConditionVariableSet(demodConditionVar);
+    HackRF.ConditionVariableSet(hackrfConditionVar);
+
 
     while(!do_exit)
     {

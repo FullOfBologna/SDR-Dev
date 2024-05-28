@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-05-11T11:04:45.110Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.2.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="Tm7n2zuw7_fwsACXwAZb" version="24.2.5" type="device" pages="3">
+<mxfile host="Electron" modified="2024-05-21T12:02:39.246Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.2.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="D66b2e8NbevxEm4rL6IS" version="24.2.5" type="device" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="FlowChart">
-    <mxGraphModel dx="794" dy="1149" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="782" dy="461" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -271,7 +271,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="kdXLxhO00D5wFwQU5DeK" name="ClassDiagrams">
-    <mxGraphModel dx="548" dy="792" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="782" dy="461" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -286,7 +286,7 @@
         <mxCell id="YwMrmA-6lsPae44D3DCS-3" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="YwMrmA-6lsPae44D3DCS-1" vertex="1">
           <mxGeometry y="96" width="255" height="6" as="geometry" />
         </mxCell>
-        <mxCell id="_pg6gIe2L6WCPwgNMmxK-2" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; line-height: 106%; white-space-collapse: preserve; font-size: 7px;&quot;&gt;&lt;div style=&quot;line-height: 106%;&quot;&gt;    &lt;span style=&quot;color: #569cd6;&quot;&gt;virtual&lt;/span&gt; &lt;span style=&quot;color: #569cd6;&quot;&gt;int&lt;/span&gt; &lt;span style=&quot;color: #dcdcaa;&quot;&gt;FrequencySet&lt;/span&gt;(&lt;span style=&quot;color: #4ec9b0;&quot;&gt;uint32_t&lt;/span&gt; &lt;span style=&quot;color: #9cdcfe;&quot;&gt;frequency&lt;/span&gt;) &lt;span style=&quot;color: #d4d4d4;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #b5cea8;&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;div style=&quot;line-height: 106%;&quot;&gt;    &lt;span style=&quot;color: #569cd6;&quot;&gt;virtual&lt;/span&gt; &lt;span style=&quot;color: #569cd6;&quot;&gt;int&lt;/span&gt; &lt;span style=&quot;color: #dcdcaa;&quot;&gt;SampleRateSet&lt;/span&gt;(&lt;span style=&quot;color: #4ec9b0;&quot;&gt;uint32_t&lt;/span&gt; &lt;span style=&quot;color: #9cdcfe;&quot;&gt;sampleRate&lt;/span&gt;) &lt;span style=&quot;color: #d4d4d4;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #b5cea8;&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;div style=&quot;line-height: 106%;&quot;&gt;    &lt;span style=&quot;color: #569cd6;&quot;&gt;virtual&lt;/span&gt; &lt;span style=&quot;color: #569cd6;&quot;&gt;int&lt;/span&gt; &lt;span style=&quot;color: #dcdcaa;&quot;&gt;BitDepthSet&lt;/span&gt;(&lt;span style=&quot;color: #4ec9b0;&quot;&gt;uint16_t&lt;/span&gt; &lt;span style=&quot;color: #9cdcfe;&quot;&gt;bitDepth&lt;/span&gt;) &lt;span style=&quot;color: #d4d4d4;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #b5cea8;&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="YwMrmA-6lsPae44D3DCS-1">
+        <mxCell id="_pg6gIe2L6WCPwgNMmxK-2" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: &amp;quot;Droid Sans Mono&amp;quot;, &amp;quot;monospace&amp;quot;, monospace; line-height: 106%; white-space-collapse: preserve; font-size: 7px;&quot;&gt;&lt;div style=&quot;line-height: 106%;&quot;&gt;    &lt;span style=&quot;color: #569cd6;&quot;&gt;virtual&lt;/span&gt; &lt;span style=&quot;color: #569cd6;&quot;&gt;int&lt;/span&gt; &lt;span style=&quot;color: #dcdcaa;&quot;&gt;FrequencySet&lt;/span&gt;(&lt;span style=&quot;color: #4ec9b0;&quot;&gt;uint32_t&lt;/span&gt; &lt;span style=&quot;color: #9cdcfe;&quot;&gt;frequency&lt;/span&gt;) &lt;span style=&quot;color: #d4d4d4;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #b5cea8;&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;div style=&quot;line-height: 106%;&quot;&gt;    &lt;span style=&quot;color: #569cd6;&quot;&gt;virtual&lt;/span&gt; &lt;span style=&quot;color: #569cd6;&quot;&gt;int&lt;/span&gt; &lt;span style=&quot;color: #dcdcaa;&quot;&gt;SampleRateSet&lt;/span&gt;(&lt;span style=&quot;color: #4ec9b0;&quot;&gt;uint32_t&lt;/span&gt; &lt;span style=&quot;color: #9cdcfe;&quot;&gt;sampleRate&lt;/span&gt;) &lt;span style=&quot;color: #d4d4d4;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #b5cea8;&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;div style=&quot;line-height: 106%;&quot;&gt;    &lt;span style=&quot;color: #569cd6;&quot;&gt;virtual&lt;/span&gt; &lt;span style=&quot;color: #569cd6;&quot;&gt;int&lt;/span&gt; &lt;span style=&quot;color: #dcdcaa;&quot;&gt;BitDepthSet&lt;/span&gt;(&lt;span style=&quot;color: #4ec9b0;&quot;&gt;uint16_t&lt;/span&gt; &lt;span style=&quot;color: #9cdcfe;&quot;&gt;bitDepth&lt;/span&gt;) &lt;span style=&quot;color: #d4d4d4;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #b5cea8;&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="YwMrmA-6lsPae44D3DCS-1" vertex="1">
           <mxGeometry y="102" width="255" height="40" as="geometry" />
         </mxCell>
         <mxCell id="YwMrmA-6lsPae44D3DCS-4" value="HackRF" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
@@ -491,7 +491,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="o8WH0-x4Snd6qCsO6gMD" name="Demod">
-    <mxGraphModel dx="782" dy="874" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="782" dy="461" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -530,6 +530,26 @@
         </mxCell>
         <mxCell id="9FEild8CH5Atxt1EuK9X-10" value="Specific Demod Block" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="530" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ntWBa-KdDc-rfuYGaNgm" name="ExampleThreadCommunication">
+    <mxGraphModel dx="782" dy="461" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="mDnynBtGoeDfzt1srOD1-1" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mDnynBtGoeDfzt1srOD1-2" value="#include &amp;lt;condition_variable&amp;gt;&lt;div&gt;#include &amp;lt;thread&amp;gt;&lt;/div&gt;&lt;div&gt;#include &amp;lt;mutex&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="8" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mDnynBtGoeDfzt1srOD1-3" value="Demod Thread w&lt;b&gt;aits until&lt;/b&gt; internal demod buffer is filled.&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;HackRF checks if Demod thread is ready to receive new data&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;If so, HackRF acquires the mutex lock for the Internal Buffer&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;HackRF writes the hackrf_transfer buffer to Demods internal buffer.&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;HackRF releases the mutex lock.&amp;nbsp;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Demod Locks the internal buffer and sets the condition variable to &quot;&lt;b&gt;not_ready&quot;&lt;/b&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="470" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="mDnynBtGoeDfzt1srOD1-4" value="Shared condition variable between hackrf and Demod thread.&amp;nbsp;&lt;div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Main should distribute the condition variable between two thread objects to associate them together.&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="560" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

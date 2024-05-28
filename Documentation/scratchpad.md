@@ -9,7 +9,9 @@ No demod will be performed. Demod will be a bentpipe only to get data to the out
     - [x] Implment DemodTargetSet method - 05/18/2024
     - [ ] Implement Read/Write Lock Safety
         - [ ] Explore Coroutines for usage. Potential value for a scanner, that triggers, based on a 
-    - [ ] Implement Ready signal for demod to start processing. Reference rtl_fm for design, and the documentation flow diagram ![Image](./FlowDragram.png)
+
+
+- [ ] Implement Ready signal for demod to start processing. Reference rtl_fm for design, and the documentation flow diagram ![Image](./FlowDragram.png)
 
 - [ ] Demod Target has route to Output Abstract class target
 - [ ] Instantiate C++ threads
