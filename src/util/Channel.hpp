@@ -1,3 +1,6 @@
+#ifndef CHANNEL_H_
+#define CHANNEL_H_
+
 #include <thread>
 #include <condition_variable>
 #include <mutex>
@@ -26,14 +29,12 @@ public:
         }
 
         std::copy(dataBuffer.begin(), dataBuffer.begin() + m_currentBufferSize, m_buffer.begin());
-        
         m_condVar.notify_one();
     }
 
 
     void std::array<T,MAXIMUM_BUFFER_SIZE>& receive(std::array<T, MAXIMUM_BUFFER_SIZE>& outputBuffer)
     {
-        
         // Needs to be a way to handle communicating the buffer size between the two classes. 
         std::unique_lock<std::mutex> lock(m_mutex);
         // Setup the wait handler
@@ -41,13 +42,17 @@ public:
 
         // Rely on put() to handle setting the current          
         std::copy(m_buffer.begin(), m_buffer.begin()+m_currentBufferSize, outputBuffer.begin());
-
+        m_condVar.notify_one();
     }
 
 private:
+
+    //Need some kind of unit testing perhaps spin up two basic threads at the start to make sure Channel is configured properly? 
+
     std::condition_variable m_condVar;
     std::mutex m_mutex;
     std::array<T,MAXIMUM_BUFFER_SIZE> m_buffer; //Decision Point between using a queue and using an array
     size_t m_currentBufferSize;                                                
-                            
 }
+
+#endif

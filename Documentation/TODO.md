@@ -203,7 +203,17 @@ Manager
     Set Demod Settings
     Create Threads
 
+===========================================================================
 
+# 07/8/2024
+
+### Catching Back Up
+
+Last left off implementing the Channel design pattern
+
+Example usage of Channel: Each pair of objects (The Device, and the Demod) will have a channel entity. 
+
+The Device object will `put` into the channel, a reference to a `dataBuffer` that will be populated with the IQ Data from the HackRF. 
 
 
 
