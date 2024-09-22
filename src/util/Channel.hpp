@@ -45,10 +45,19 @@ public:
         m_condVar.notify_one();
     }
 
+    void close()
+    {
+        std::scoped_lock lock(m_mutex);
+        m_closed = true;
+        cond.notify_all();
+    }
+
+
 private:
 
     //Need some kind of unit testing perhaps spin up two basic threads at the start to make sure Channel is configured properly? 
 
+    bool m_closed = false;
     std::condition_variable m_condVar;
     std::mutex m_mutex;
     std::array<T,MAXIMUM_BUFFER_SIZE> m_buffer; //Decision Point between using a queue and using an array

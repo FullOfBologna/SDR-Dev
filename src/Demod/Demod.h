@@ -4,6 +4,7 @@
 #include <cstdint>
 #include "defines.h"
 #include "Output/Output.h"
+#include "util/Channel.hpp"
 
 class Demod
 {
@@ -21,7 +22,8 @@ protected:
     std::array<int16_t,MAXIMUM_BUF_LENGTH> m_lpBuf;
     std::array<int16_t,MAXIMUM_BUF_LENGTH> m_result;
 
-void OutputTargetSet(std::unique_ptr<Output*> outputTarget);
+    void OutputTargetSet(std::unique_ptr<Output*> outputTarget);
+    std::shared_ptr<Channel> mChannel;
 };
 
 #endif

@@ -65,7 +65,7 @@ int HackRFDongle::sdrCallback(hackrf_transfer* transfer)
     }
     else
     {
-       result =  
+       //result =  
     }
 
     demodTargetLock();
@@ -73,6 +73,4 @@ int HackRFDongle::sdrCallback(hackrf_transfer* transfer)
     demodTargetFree();
 
     std::cout << bytesWritten << '\n';
-
-
 }

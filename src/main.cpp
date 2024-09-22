@@ -22,7 +22,7 @@ int main(void)
 	FoundDevices.libInitialize();
 
 	int result = HACKRF_SUCCESS;
-FoundDevices.resultCheck(result);
+    FoundDevices.resultCheck(result);
 
 	if(result != HACKRF_SUCCESS)
 	{
@@ -30,7 +30,6 @@ FoundDevices.resultCheck(result);
 	}
 
 	FoundDevices.DeviceListRead();
-
 	FoundDevices.DeviceListReport();
 
 	/*
@@ -51,25 +50,28 @@ FoundDevices.resultCheck(result);
 	HackRFDongle HackRF(devToOpen);
 	//Initialize Demod Object
     //
-    const std::string OUTPUT_DIR = "/home/fullofbologna/dev_env/CppDev/HackRF_Dev";
-
+    const std::string OUTPUT_DIR = "/home/fullofbologna/dev_env/CppDev/HackRF_Dev/";
+    const std::string OUTPUT_FILE = OUTPUT_DIR + "TestWavOutput.wav";
+    
     Demod BentPipeDemod();
     WavOutput WavFileOutput(OUTPUT_FILE);
 
 	HackRFDongle.DemodTargetSet(BentPipeDemod);
 
-	uint32_t tuneFrequencyHz = 2100 * MHZ_TO_HZ;
-	uint32_t sampleRate = 20 * MHZ_TO_HZ;
+	uint32_t tuneFrequencyHz = 92.5 * MHZ_TO_HZ;
+	uint32_t sampleRate = 2 * MHZ_TO_HZ;
 
 	HackRF.FrequencySet(tuneFrequencyHz);
 	HackRF.SampleRateSet(sampleRate);
 	HackRF.VGAGainSet(32);
 	HackRF.LNAGainSet(14);
 
-	//Move HackRF to own thread. 
-	HackRF.StartRx();
-
-    //OutputFile.setFileSize();
+    // RawDataChannel - Data Channel between HackRFDongle and the Demod Object. 
+    // ProcDataChannel - Data Channel between the filtered and demodulated data, and 
+    //                   the appropriate output stream, whether it be file output or 
+    //
+    std::shared_ptr<Channel> RawDataChannel = std::make_shared<Channel>();
+    std::shared_ptr<Channel> ProcDataChannel = std::make_shared<Channel>();
 
 	// Catch Signal and call hackRFStopRx();
 	signal(SIGINT, &sigint_callback_handler);
@@ -80,14 +82,25 @@ FoundDevices.resultCheck(result);
 	signal(SIGABRT, &sigint_callback_handler);
 
 
+    HackRFDongle.OutputChannelSet(RawDataChannel);
+    BentPipeDemod.InputChannelSet(RawDataChannel);
+    
+    BentPipeDemod.OutputChannelSet(ProcDataChannel);
+    WavOutput.InputChannelSet(ProcDataChannel);
+
     /*
      * Initialize Threads for Rx Receiving. 
      *  - HackRF Will run on it's own thread, listening for a callback from the Rx Device
      *  - Demod instance will wait for signal from Rx Receive that it is ready to pass in data. 
      *  - Output instane will wait for signal from Demod that it is ready to receive data to write\
      *      to file, or output via audio. 
+     *
+     *
+     *
+     * UPDATE: Now each thread will utilize a "Channel" Object as a bridge between the
+     *  two threads, which will be responsible for handling the 
      */
-
+/*
     bool outputReady(false);
     bool demodReady(false);
     std::mutex outputMutex;
@@ -104,6 +117,7 @@ FoundDevices.resultCheck(result);
     WavFileOutput.ConditionVariableSet(outputConditionVar);
     BentPipeDemod.ConditionVariableSet(demodConditionVar);
     HackRF.ConditionVariableSet(hackrfConditionVar);
+*/
 
 
     while(!do_exit)
@@ -115,6 +129,9 @@ FoundDevices.resultCheck(result);
         //Close Output File
         //Teardown Threads
     HackRF.StopRx();
+    BentPipeDemod.Stop();
+    WavOutput.FileClose();
+
 
 	return EXIT_SUCCESS;
 }

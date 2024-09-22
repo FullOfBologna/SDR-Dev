@@ -27,7 +27,7 @@ private:
 std::unique_ptr<hackrf_device> mDevice;
 std::unique_ptr<Demod> mDemodTarget;
 std::unique_ptr<devInfo> mDevInfo;
-
+static std::shared_ptr<Channel> mChannel;
 uint32_t mVGAGain;
 uint32_t mLNAGain;
 
@@ -48,7 +48,7 @@ int sdrCallback(hackrf_transfer* transfer);
 
 public: 
 
-HackRFDongle(std::unique_ptr<hackrf_device>& device):mDevice(std::move(device)){};
+HackRFDongle(std::unique_ptr<hackrf_device>& device, Channel& dataChannel):mDevice(std::move(device)){};
 ~HackRFDongle(){};
 
 // void hackRfConfigure();
