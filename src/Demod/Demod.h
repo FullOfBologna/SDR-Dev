@@ -12,7 +12,7 @@ class Demod
 public:
     virtual ~Demod();
 
-
+    void StartRx();
 protected:
     Demod(){};
 
@@ -22,8 +22,14 @@ protected:
     std::array<int16_t,MAXIMUM_BUF_LENGTH> m_lpBuf;
     std::array<int16_t,MAXIMUM_BUF_LENGTH> m_result;
 
-    void OutputTargetSet(std::unique_ptr<Output*> outputTarget);
-    std::shared_ptr<Channel> mChannel;
+ //   void OutputTargetSet(std::unique_ptr<Output*> outputTarget);
+    std::shared_ptr<Channel> mInChannel;
+    std::shared_ptr<Channel> mOutChannel;
+
+    //Methods
+    //
+    //receiver will loop calling mInChannel
+    virtual void receiver();
 };
 
 #endif

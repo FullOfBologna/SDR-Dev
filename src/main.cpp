@@ -3,6 +3,8 @@
 #include <signal>
 #include <thread>
 
+std::atomic<bool> do_exit(false);
+
 
 void sigint_callback_handler(int signum)
 {
@@ -56,7 +58,7 @@ int main(void)
     Demod BentPipeDemod();
     WavOutput WavFileOutput(OUTPUT_FILE);
 
-	HackRFDongle.DemodTargetSet(BentPipeDemod);
+	//HackRFDongle.DemodTargetSet(BentPipeDemod);
 
 	uint32_t tuneFrequencyHz = 92.5 * MHZ_TO_HZ;
 	uint32_t sampleRate = 2 * MHZ_TO_HZ;
@@ -65,7 +67,8 @@ int main(void)
 	HackRF.SampleRateSet(sampleRate);
 	HackRF.VGAGainSet(32);
 	HackRF.LNAGainSet(14);
-
+    HackRF.AmpEnable(true);
+    
     // RawDataChannel - Data Channel between HackRFDongle and the Demod Object. 
     // ProcDataChannel - Data Channel between the filtered and demodulated data, and 
     //                   the appropriate output stream, whether it be file output or 
@@ -119,10 +122,31 @@ int main(void)
     HackRF.ConditionVariableSet(hackrfConditionVar);
 */
 
+    //Tie sdr_callback function to hack_rf_start_rx function call.
+    HackRF.StartRx();
 
+    bool do_exit = false;
+
+    std::cout << "Starting Receiver...\n";
     while(!do_exit)
     {
-        
+        // For now, this is just keeping the process alive, while the work is being don
+        //  in the class instances. 
+
+        // perhaps accept user input during this time: 
+        input = std::cin >> ">> ";
+        switch(input):
+        case "exit":
+        case "exit()":
+        case "quit()":
+            cout << "Exiting application\n";
+            do_exit = true;
+            break;
+        default:
+            break;
+        //Catch signals to quit receiver. 
+        //  - Figure out how to capture a command input on the command line
+        //      such as exit, exit(), quit(), etc...
     }
     //Clean up threads. 
         //Stop RX
@@ -131,7 +155,6 @@ int main(void)
     HackRF.StopRx();
     BentPipeDemod.Stop();
     WavOutput.FileClose();
-
 
 	return EXIT_SUCCESS;
 }
