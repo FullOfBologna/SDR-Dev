@@ -16,9 +16,7 @@ public:
 protected:
     Demod(){};
 
-    int16_t lpBuf[MAXIMUM_BUF_LENGTH];
-    int16_t result[MAXIMUM_BUF_LENGTH];
-
+    std::array<int16_t,MAXIMUM_BUF_LENGTH> m_rawBuf;
     std::array<int16_t,MAXIMUM_BUF_LENGTH> m_lpBuf;
     std::array<int16_t,MAXIMUM_BUF_LENGTH> m_result;
 
@@ -26,6 +24,7 @@ protected:
     std::shared_ptr<Channel> mInChannel;
     std::shared_ptr<Channel> mOutChannel;
 
+    size_t m_inBufSize;
     //Methods
     //
     //receiver will loop calling mInChannel

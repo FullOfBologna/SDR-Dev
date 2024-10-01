@@ -33,15 +33,19 @@ public:
     }
 
 
-    void std::array<T,MAXIMUM_BUFFER_SIZE>& receive(std::array<T, MAXIMUM_BUFFER_SIZE>& outputBuffer)
+    //Transferring buffer to outgoing buffer by reference instead of transferring ivia return, for performance sake, to avoid any unnecessary calls to copy constructors.
+    void receive(std::array<T, MAXIMUM_BUFFER_SIZE>& outputBuffer, size_t& outBufferSize)
     {
         // Needs to be a way to handle communicating the buffer size between the two classes. 
         std::unique_lock<std::mutex> lock(m_mutex);
         // Setup the wait handler
         m_condVar.wait(lock, [&](){return !data_ready});
 
+        outBufferSize = m_currentBufferSize;
+
         // Rely on put() to handle setting the current          
         std::copy(m_buffer.begin(), m_buffer.begin()+m_currentBufferSize, outputBuffer.begin());
+
         m_condVar.notify_one();
     }
 

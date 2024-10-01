@@ -79,21 +79,13 @@ int HackRFDongle::sdrCallback(hackrf_transfer* transfer)
 
     bytesToWrite = transfer->valid_length;
     
-    std::cout << bytesToWrite << '\n';
+//    std::cout << bytesToWrite << '\n';
 
     /*
     * Transfer hackrf_transfer uint8_t* to std::array for 
     */ 
-
-    if(bytesToWrite <= MAXIMUM_BUF_LENGTH)
-    {
-        std::copy(transfer->buf,bytesToWrite,mSampBuffer.begin());
-        mChannel->put(mSampBuffer);
-    }
-    else
-    {
-       //result =  
-    }
+    std::copy(transfer->buf,bytesToWrite,mSampBuffer.begin());
+    mChannel->put(mSampBuffer); 
 
     return HACKRF_SUCCESS;
 //    demodTargetLock();
