@@ -8,7 +8,7 @@ public:
     ~BentPipeDemod(){};
 
     void ThroughputStatsGet();
-
+    void StartRx();
 
 private:
     void receiver();

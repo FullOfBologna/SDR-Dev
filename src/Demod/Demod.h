@@ -12,7 +12,11 @@ class Demod
 public:
     virtual ~Demod();
 
-    void StartRx();
+    // StartRx() - Link the receiver to the inChannel output. Need to have the receiver on it's own thread, then have the data in this object or it's child perform the 
+    //      processing. 
+    virtual void StartRx();
+    void InputChannelSet(std::shared_ptr<Channel>& channel);
+    void OutputChannelSet(std::shared_ptr<Channel>& channel
 protected:
     Demod(){};
 
