@@ -85,11 +85,11 @@ int main(void)
 	signal(SIGABRT, &sigint_callback_handler);
 
 
-    HackRFDongle.OutputChannelSet(RawDataChannel);
+    HackRF.OutputChannelSet(RawDataChannel);
     BentPipeDemod.InputChannelSet(RawDataChannel);
     
     BentPipeDemod.OutputChannelSet(ProcDataChannel);
-    WavOutput.InputChannelSet(ProcDataChannel);
+    WavFileOutput.InputChannelSet(ProcDataChannel);
 
     /*
      * Initialize Threads for Rx Receiving. 
@@ -154,7 +154,7 @@ int main(void)
         //Teardown Threads
     HackRF.StopRx();
     BentPipeDemod.Stop();
-    WavOutput.FileClose();
+    WavFileOutput.FileClose();
 
 	return EXIT_SUCCESS;
 }

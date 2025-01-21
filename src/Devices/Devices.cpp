@@ -47,7 +47,7 @@ int Devices::DeviceListReport()
 	{
 		std::cout << "ERROR: No Devices boards found.\n";
 		return EXIT_FAILURE;	
-	}
+    }
 
 
 	hackrf_device *device;
